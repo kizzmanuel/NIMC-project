@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://localhost:50721/public/home/index.sap -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Abeezee:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+<link href="http://localhost:50721/template/Frontend/skin/default/img/favicon.png" rel="icon">
+<title>NIMC BILL</title>
+<link rel="icon" type="image/x-icon" href="./NIMC BILL_files/ninlogo.png" />
+<link href="./NIMC BILL_files/styles.css" rel="stylesheet">
+<link href="./NIMC BILL_files/bootstrap.min.css" rel="stylesheet">
+<link href="./NIMC BILL_files/bootstrap-theme.min.css" rel="stylesheet">
+<link href="./NIMC BILL_files/datetimepicker.min.css" rel="stylesheet">
+<link href="./NIMC BILL_files/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+<script src="./NIMC BILL_files/basic.js.download"></script>
+<script src="./NIMC BILL_files/jquery-3.2.1.min.js.download"></script>
+<script src="./NIMC BILL_files/bootstrap.min.js.download"></script>
+<script src="./NIMC BILL_files/datetimepicker.min.js.download"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="MessageTime()">
+ 
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://localhost:50721/public/home/index.sap"><img src="./NIMC BILL_files/logo6.png" alt="Logo" class="logo" height="50"></a>
+            <!-- Top Menu Items -->
+            <ul class="nav pull-right">
+                
+            </ul>
+            
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-1-collapse">
+                <ul class="nav-btn">
+                    <li class="nav-item active custom-nav"><a class="nav-link" href="http://localhost:50721/public/home/index.sap">Home</a></li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <main class="main noside">
+        <div class="container">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    
+                </div>
+            </div>
+          
+              <div class="login-card box-shadow">
+                  <div class="content">
+                      <div class="image-form"></div>
+                      <div class="form">
+                          <h2>Sign in to continue</h2>
+                          <h6 class="text-white">Fill in your login details to proceed</h6>
+                          <div class="center-block">
+                            <!-- <img class="profile-img" src="./NIMC BILL_files/photo.png" alt=""> -->
+                        </div>
+                          <form role="form" id="content_1_login1_login1" action="http://localhost:50721/public/home/index.sap?__section=content_1&amp;__element=login1&amp;__controller_login1=" method="post">
+                            <input type="hidden" id="content_1_login1_login1___event" name="content_1_login1_login1___event" value="">
+                            <input type="hidden" id="content_1_login1_login1___event_section" name="content_1_login1_login1___event_section" value="">
+                            <input type="hidden" id="content_1_login1_login1___event_name" name="content_1_login1_login1___event_name" value="">  
+                            <label>EMAIL</label>
+                              <input type="email" id="content_1_login1_login1_email" name="email" placeholder="you@example.com" required>
+                              <input type="hidden" id="content_1_login1_login1___event" name="content_1_login1_login1___event" value="">
+                              <label>PASSWORD</label>
+                              <input type="password" id="content_1_login1_login1_password" name="password" placeholder="****" required>
+                              <p>Forgot your password? <a href="http://localhost:50721/public/home/resetpassword.sap?__return_url=public/home/index.sap" class="text-light">Click here to reset</a></p>
+                              <button type="submit" onclick="submitForm('content_1_login1_login1','login','','');return false;">Sign in</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+
+      
+
+        
+    </div>
+</div>
+
+
+
+  
+<script>
+    if('' !== '')
+    {
+        $('#content_1_login1_login1_username').popover('show');
+    }
+    if('' !== '')
+    {
+        $('#content_1_login1_login1_password').popover('show');
+    }
+</script>
+    </div>
+</div>
+
+        </div>
+        <!-- /.container-fluid -->
+        <div class="modal fade" id="SharedModal" tabindex="-1" role="dialog" aria-labelledby="SharedModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="SharedModalLabel">Confirm</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <p id="SharedModalMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <a class="btn btn-primary" onclick="submitSetEvent();return false;">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <script>ajaxcascadeupdate();</script>
+
+
+
+</body></html>

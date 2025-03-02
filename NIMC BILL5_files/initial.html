@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- saved from url=(0318)http://localhost:50721/protected/security/login_add_form.sap?content_1_login_mst_list1_list1___event=&content_1_login_mst_list1_list1___event_section=toolbar&content_1_login_mst_list1_list1___event_name=new&__return_url=protected/security/login_mst_list.sap&__return_anchor=content_1_login_mst_list1_list1___tool___new -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="./NIMC BILL_files/ninlogo.png" />
+<title>NIMC BILL</title>
+<link href="./NIMC BILL5_files/styles.css" rel="stylesheet">
+<link href="./NIMC BILL5_files/bootstrap.min.css" rel="stylesheet">
+<link href="./NIMC BILL5_files/bootstrap-theme.min.css" rel="stylesheet">
+<link href="./NIMC BILL5_files/datetimepicker.min.css" rel="stylesheet">
+<link href="./NIMC BILL5_files/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="fontawesome/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+<script src="./NIMC BILL5_files/basic.js.download"></script>
+<script src="./NIMC BILL5_files/jquery-3.2.1.min.js.download"></script>
+<script src="./NIMC BILL5_files/bootstrap.min.js.download"></script>
+<script src="./NIMC BILL5_files/datetimepicker.min.js.download"></script>
+</head>
+<body onload="MessageTime()">
+    
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="http://localhost:50721/public/home/index.sap"><img src="./NIMC BILL5_files/logo6.png" alt="Logo" class="logo" height="50"></a>
+        <!-- Top Menu Items -->
+         
+        <ul class="nav pull-right">
+           
+            <li class="dropdown">
+    <a href="http://localhost:50721/protected/security/login_add_form.sap?content_1_login_mst_list1_list1___event=&amp;content_1_login_mst_list1_list1___event_section=toolbar&amp;content_1_login_mst_list1_list1___event_name=new&amp;__return_url=protected/security/login_mst_list.sap&amp;__return_anchor=content_1_login_mst_list1_list1___tool___new#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+    <ul class="dropdown-menu dropdown-menu-right">
+        
+        <li>
+            <a href="http://localhost:50721/protected/home/changepassword.sap?__return_url=protected/security/login_add_form.sap"><i class="fa fa-fw fa-gear"></i> Settings</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="http://localhost:50721/protected/security/login_add_form.sap?__section=user_name&amp;__element=username1&amp;__controller_username1=&amp;user_name_username1_username1___event=logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+        </li>
+    </ul>
+</li>
+        </ul>
+        <!-- <a href="http://localhost:50721/public/home/index.sap"><img src="./NIMC BILL5_files/logo6.png" alt="Logo" class="logo" height="50"></a> -->
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-1-collapse">
+            <ul class="nav navbar-nav">
+    
+<li><a class="text-light" style="color: #fff;" href="http://localhost:50721/public/home/index.sap">Home</a></li>
+
+<li class="active btn-warning"><a style="color: #fff;" href="http://localhost:50721/protected/security/index.sap">Admin</a></li>
+
+<li><a style="color: #fff;" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap">Billing</a></li>
+
+<li><a style="color: #fff;" href="http://localhost:50721/protected/nimcbill/selfservice.sap">Self Service</a></li>
+    
+</ul>
+
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+    <main class="main">
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="btn btn-danger pull-right" href="http://localhost:50721/protected/security/login_mst_list.sap#content_1_login_mst_list1_list1___tool___new" title="Close">×</a>
+
+                    <ol class="breadcrumb">
+    <li class="active"><a href="http://localhost:50721/protected/security/index.sap">Admin</a></li><li class="active"><a href="http://localhost:50721/protected/security/login_mst_list.sap">User</a></li><li class="active"><a href="http://localhost:50721/protected/security/login_add_form.sap">Add User</a></li>
+</ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- /.row -->
+            <div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-tabs side-nav">
+            
+<li role="presentation"><a style="font-size: 16px;" href="http://localhost:50721/protected/security/access_txn_list.sap?__return_url=protected/security/login_add_form.sap">  <i class="fa fa-lock mx-2" style="font-size: 16px;" ></i>  Access</a></li>
+
+<li role="presentation"><a style="font-size: 16px;" href="http://localhost:50721/protected/security/login_type_mst_list.sap?__return_url=protected/security/login_add_form.sap">  <i class="fa fa-tags" style="font-size: 16px;"></i>  Type</a></li>
+
+<li role="presentation"><a style="font-size: 16px;" href="http://localhost:50721/protected/security/login_reset_txn_list.sap?__return_url=protected/security/login_add_form.sap"><i class="fa fa-undo" style="font-size: 16px;"></i> Reset</a></li>
+ 
+        </ul>       
+    </div>
+</div>
+
+
+            
+<div class="row">
+    <div class="col-xs-12">
+        <form id="content_1_login_add_form1_form1" name="content_1_login_add_form1_form1" action="http://localhost:50721/protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                    
+                    <div class="row">
+                        <div class="col-sm-12 spacer">
+                            
+                        </div>
+                    </div>
+                    <input type="hidden" id="content_1_login_add_form1_form1___event" name="content_1_login_add_form1_form1___event" value="">
+                    <input type="hidden" id="content_1_login_add_form1_form1___event_section" name="content_1_login_add_form1_form1___event_section" value="">
+                    <input type="hidden" id="content_1_login_add_form1_form1___event_name" name="content_1_login_add_form1_form1___event_name" value="">                                                            
+                    <div class="row">
+                        <div class="col-xs-6">
+                            
+<div id="content_1_login_add_form1_form1___data_type_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Type <strong style="color: red">*</strong></label>
+        <div class="col-xs-8">
+            <select id="content_1_login_add_form1_form1___data_type" name="content_1_login_add_form1_form1___data_type" class="form-control" placeholder="" data-placement="right" data-content="" data-trigger="manual" onchange="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=type&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+                <option value=""></option><option value="NIMC Billing">NIMC Billing</option><option value="self-service">self-service</option>
+            </select>
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+
+        </div>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_sid_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">System ID</label>
+        <div class="col-xs-8">
+            <input type="text" id="content_1_login_add_form1_form1___data_sid" name="content_1_login_add_form1_form1___data_sid" class="form-control" value="" placeholder="Staff No." data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=sid&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+        </div>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_name_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Display name</label>
+        <div class="col-xs-8">
+            <input type="text" id="content_1_login_add_form1_form1___data_name" name="content_1_login_add_form1_form1___data_name" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=name&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+        </div>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_email_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Email</label>
+        <div class="col-xs-8">
+            <input type="text" id="content_1_login_add_form1_form1___data_email" name="content_1_login_add_form1_form1___data_email" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=email&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+        </div>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_phone_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Phone</label>
+        <div class="col-xs-8">
+            <input type="text" id="content_1_login_add_form1_form1___data_phone" name="content_1_login_add_form1_form1___data_phone" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=phone&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+        </div>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_user_id_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">User id <strong style="color: red">*</strong></label>
+        <div class="col-xs-8">
+            <input type="text" id="content_1_login_add_form1_form1___data_user_id" name="content_1_login_add_form1_form1___data_user_id" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=user_id&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="">
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+        </div>
+    </div>
+</div>
+
+<div class="form-group ">
+    <label class="col-xs-2 control-label">Password <strong style="color: red">*</strong></label>
+    <div class="col-xs-8">
+        <input type="password" id="content_1_login_add_form1_form1___data_password" name="content_1_login_add_form1_form1___data_password" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual">
+        <p class="help-block"></p>
+        <p class="text-danger"></p>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_password_date_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Password expiry date <strong style="color: red">*</strong></label>
+        <div class="col-xs-8">
+            <div class="input-group date" id="content_1_login_add_form1_form1___data_password_date_date" data-date-format="dd-mm-yyyy">
+                <input type="text" id="content_1_login_add_form1_form1___data_password_date" name="content_1_login_add_form1_form1___data_password_date" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem1=&amp;__ajax_name=password_date&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="" readonly="">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+            
+            <script>
+                $('#content_1_login_add_form1_form1___data_password_date_date').datetimepicker({ todayBtn: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 2, forceParse: 0, showMeridian: 1, pickerPosition: "bottom-left" });
+            </script>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="col-xs-6">
+                          
+<div class="form-group ">
+    <label class="col-xs-2 control-label">Enabled</label>
+    <div class="col-xs-8 mt-3">
+        <input  style=" margin-top: 12px!important;" type="checkbox" id="content_1_login_add_form1_form1___data_enabled" name="content_1_login_add_form1_form1___data_enabled" placeholder="" data-placement="right" data-content="" data-trigger="manual">
+        <script>
+            if ('' === '') { }
+            else if ('' === 'success') { }
+            else {
+                $('#content_1_login_add_form1_form1___data_enabled').addClass('alert-warning').popover('show');
+            }
+        </script>
+    </div>
+</div>
+
+<div id="content_1_login_add_form1_form1___data_expiry_container">
+    <div class="form-group ">
+        <label class="col-xs-2 control-label">Account expiry date <strong style="color: red">*</strong></label>
+        <div class="col-xs-8">
+            <div class="input-group date" id="content_1_login_add_form1_form1___data_expiry_date" data-date-format="dd-mm-yyyy">
+                <input type="text" id="content_1_login_add_form1_form1___data_expiry" name="content_1_login_add_form1_form1___data_expiry" class="form-control" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual" onblur="ajaxcascadesamecontrollerpartial(&#39;content_1_login_add_form1_form1&#39;, &#39;&#39;);" data-updatequery="" data-updateurl="../../protected/security/login_add_form.sap?__section=content_1&amp;__element=login_add_form1&amp;__controller_form1=&amp;__controller_form1_formitem2=&amp;__ajax_name=expiry&amp;__partial=true" data-prefix="content_1_login_add_form1_form1" data-cascadecontrol="" readonly="">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-remove"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+            <p class="help-block"></p>
+            <p class="text-danger"></p>
+            
+            <script>
+                $('#content_1_login_add_form1_form1___data_expiry_date').datetimepicker({ todayBtn: 1, autoclose: 1, todayHighlight: 1, startView: 2, minView: 2, forceParse: 0, showMeridian: 1, pickerPosition: "bottom-left" });
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="form-group ">
+    <label class="col-xs-2 control-label">Change password</label>
+    <div class="col-xs-8" style=" margin-top: 10px!important;">
+        <input type="checkbox" id="content_1_login_add_form1_form1___data_change_password" name="content_1_login_add_form1_form1___data_change_password" placeholder="" data-placement="right" data-content="" data-trigger="manual">
+        <script>
+            if ('' === '') { }
+            else if ('' === 'success') { }
+            else {
+                $('#content_1_login_add_form1_form1___data_change_password').addClass('alert-warning').popover('show');
+            }
+        </script>
+    </div>
+</div>
+
+<div class="form-group ">
+    <label class="col-xs-2 control-label">Input file <strong style="color: red">*</strong></label>
+    <div class="col-xs-8">
+        <input type="file" id="content_1_login_add_form1_form1___data_input_file" name="content_1_login_add_form1_form1___data_input_file" value="" placeholder="" data-placement="right" data-content="" data-trigger="manual">
+        <script>
+            if ('' === '') { }
+            else if ('' === 'success') { }
+            else {
+                $('#content_1_login_add_form1_form1___data_input_file').addClass('alert-warning').popover('show');
+            }
+        </script>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">	
+    
+<button type="button" class="btn btn-primary" data-target="#content_1_login_add_form1_form1___tool___insert_myModal" role="button" data-toggle="modal">Create</button>
+<!-- modal -->
+<div class="modal fade" id="content_1_login_add_form1_form1___tool___insert_myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" onclick="submitForm(&#39;content_1_login_add_form1_form1&#39;, &#39;insert&#39;, &#39;buttonbar&#39;, &#39;insert&#39;); return false;">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-target="#content_1_login_add_form1_form1___tool___useinputfile_myModal" role="button" data-toggle="modal">Create with file</button>
+<!-- modal -->
+<div class="modal fade" id="content_1_login_add_form1_form1___tool___useinputfile_myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary" onclick="submitForm(&#39;content_1_login_add_form1_form1&#39;, &#39;insertuseinputfile&#39;, &#39;buttonbar&#39;, &#39;useinputfile&#39;); return false;">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-default" href="http://localhost:50721/protected/security/login_mst_list.sap#content_1_login_mst_list1_list1___tool___new">Close</a>
+
+    
+</div>
+	
+
+            </div>
+        </form>
+    </div>
+</div>
+        </div>
+        <!-- /.container-fluid -->
+        <div class="modal fade" id="SharedModal" tabindex="-1" role="dialog" aria-labelledby="SharedModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="SharedModalLabel">Confirm</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <p id="SharedModalMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <a class="btn btn-primary" onclick="submitSetEvent();return false;">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main><div class="datetimepicker datetimepicker-dropdown-bottom-left dropdown-menu" style="left: 465.25px; z-index: 1040;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">17 February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><fieldset class="minute"><legend>AM</legend><span class="minute">11:00</span><span class="minute">11:05</span><span class="minute">11:10</span><span class="minute">11:15</span><span class="minute">11:20</span><span class="minute">11:25</span><span class="minute">11:30</span><span class="minute">11:35</span><span class="minute">11:40</span><span class="minute">11:45</span><span class="minute active">11:50</span><span class="minute">11:55</span></fieldset></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">17 February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><fieldset class="hour"><legend>AM</legend><span class="hour hour_am">12</span><span class="hour hour_am">1</span><span class="hour hour_am">2</span><span class="hour hour_am">3</span><span class="hour hour_am">4</span><span class="hour hour_am">5</span><span class="hour hour_am">6</span><span class="hour hour_am">7</span><span class="hour hour_am">8</span><span class="hour hour_am">9</span><span class="hour hour_am">10</span><span class="hour active hour_am">11</span></fieldset><fieldset class="hour"><legend>PM</legend><span class="hour hour_pm">12</span><span class="hour hour_pm">1</span><span class="hour hour_pm">2</span><span class="hour hour_pm">3</span><span class="hour hour_pm">4</span><span class="hour hour_pm">5</span><span class="hour hour_pm">6</span><span class="hour hour_pm">7</span><span class="hour hour_pm">8</span><span class="hour hour_pm">9</span><span class="hour hour_pm">10</span><span class="hour hour_pm">11</span></fieldset></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td></tr><tr><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td></tr><tr><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td></tr><tr><td class="day">16</td><td class="day today active">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td></tr><tr><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day new">1</td></tr><tr><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month active">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year active">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year old">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div></div><div class="datetimepicker datetimepicker-dropdown-bottom-left dropdown-menu" style="left: 944.79px; z-index: 1080;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">17 February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><fieldset class="minute"><legend>AM</legend><span class="minute">11:00</span><span class="minute">11:05</span><span class="minute">11:10</span><span class="minute">11:15</span><span class="minute">11:20</span><span class="minute">11:25</span><span class="minute">11:30</span><span class="minute">11:35</span><span class="minute">11:40</span><span class="minute">11:45</span><span class="minute active">11:50</span><span class="minute">11:55</span></fieldset></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">17 February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><fieldset class="hour"><legend>AM</legend><span class="hour hour_am">12</span><span class="hour hour_am">1</span><span class="hour hour_am">2</span><span class="hour hour_am">3</span><span class="hour hour_am">4</span><span class="hour hour_am">5</span><span class="hour hour_am">6</span><span class="hour hour_am">7</span><span class="hour hour_am">8</span><span class="hour hour_am">9</span><span class="hour hour_am">10</span><span class="hour active hour_am">11</span></fieldset><fieldset class="hour"><legend>PM</legend><span class="hour hour_pm">12</span><span class="hour hour_pm">1</span><span class="hour hour_pm">2</span><span class="hour hour_pm">3</span><span class="hour hour_pm">4</span><span class="hour hour_pm">5</span><span class="hour hour_pm">6</span><span class="hour hour_pm">7</span><span class="hour hour_pm">8</span><span class="hour hour_pm">9</span><span class="hour hour_pm">10</span><span class="hour hour_pm">11</span></fieldset></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">February 2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td></tr><tr><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td></tr><tr><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td></tr><tr><td class="day">16</td><td class="day today active">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td></tr><tr><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day new">1</td></tr><tr><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">2025</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month active">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-left"></i> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><i class="glyphicon glyphicon-arrow-right"></i> </th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year">2024</span><span class="year active">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year old">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr></tfoot></table></div></div>
+    
+
+    <script>ajaxcascadeupdate();</script>
+
+</body></html>

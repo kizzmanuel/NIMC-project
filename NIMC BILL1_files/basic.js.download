@@ -1,0 +1,585 @@
+﻿function escapeHTML() {
+    var collection = document.getElementsByTagName('TEXTAREA');
+    for (var x = 0; x < collection.length; x++) {
+        var _string = collection[x].value;
+        _string = replaceAll('<', '&lt;', _string);
+        _string = replaceAll('>', '&gt;', _string);
+        collection[x].value = _string;
+    }
+}
+
+function submitForm(fqid, firedevent, firedeventsection, firedeventname) {
+    escapeHTML();
+    document.getElementById(fqid + '___event').value = firedevent;
+    document.getElementById(fqid + '___event_section').value = firedeventsection;
+    document.getElementById(fqid + '___event_name').value = firedeventname;
+    document.forms[fqid].submit();
+}
+
+var eventFQID = '';
+function setEvent(fqid, firedevent, firedeventsection, firedeventname) {    
+    document.getElementById(fqid + '___event').value = firedevent;
+    document.getElementById(fqid + '___event_section').value = firedeventsection;
+    document.getElementById(fqid + '___event_name').value = firedeventname;
+    eventFQID = fqid;
+}
+
+function submitSetEvent() {
+    escapeHTML();    
+    document.forms[eventFQID].submit();
+}
+
+function setSharedModalMessage(message) {
+    document.getElementById('SharedModalMessage').innerText = message;
+}
+
+function asynchronousCall(control, container) {
+    var updatestring = j(control).getAttribute('data-updatequery');
+    var url = j(control).getAttribute('data-updateurl');
+    updatestring = replaceAll(',', '","', updatestring);
+    updatestring = replaceAll(':', '":"', updatestring);
+    updatestring = replaceAll('}","{', '"},{"', updatestring);
+    updatestring = replaceAll('}}', '"}]}', updatestring);
+    updatestring = replaceAll('{{', '{"collection":[{"', updatestring);
+
+    if (updatestring != "") {
+        var jsonObj = JSON.parse(updatestring);
+        var thequery = '';
+        var thecontrol = '';
+        for (var i = 0; i < jsonObj.collection.length; i++) {
+            thequery = jsonObj.collection[i].query;
+            thecontrol = jsonObj.collection[i].control;
+
+
+            var tag = j(thecontrol).tagName;
+            var value = '';
+            if (tag == 'INPUT') {
+                var type = j(thecontrol).getAttribute('type');
+                if (type == 'text') {
+                    value = j(thecontrol).value;
+                }
+            }
+
+            if (tag == 'SELECT') {
+                if (j(thecontrol).options.length != 0) { value = j(thecontrol).options[j(thecontrol).selectedIndex].value; }
+            }
+
+            if (url.indexOf("?") != -1) { url = url + '&' + thequery + '=' + value; }
+            else { url = url + '?' + thequery + '=' + value; }
+        }
+    }
+    
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send();
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var response = xmlhttp.responseText;
+        j(container).outerHTML = response;
+    }
+
+}
+
+function CheckAll(checkbox) {
+    if (checkbox.type.toUpperCase() == 'CHECKBOX') {
+        var collection = document.getElementsByTagName('INPUT');
+        for (var x = 0; x < collection.length; x++) {
+            if (collection[x].type.toUpperCase() == 'CHECKBOX') {
+                if ((collection[x].name.indexOf(checkbox.name) == 0) && (collection[x].name.lastIndexOf("_ca") == collection[x].name.length - 3)) {
+                    collection[x].checked = checkbox.checked;
+                }
+            }
+
+        }
+    }
+}
+
+
+function postForm(formname) {
+    document.getElementById(formname).submit();
+}
+
+function j(x) {
+    return document.getElementById(x);
+}
+
+function replaceAll(find, replace, str) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
+
+function getElementsByAttribute(oElm, strTagName, strAttributeName, strAttributeValue) {
+    var arrElements = (strTagName == "*" && document.all) ? document.all : oElm.getElementsByTagName(strTagName);
+    var arrReturnElements = new Array();
+    var oAttributeValue = (typeof strAttributeValue != "undefined") ? new RegExp("(^|\\s)" + strAttributeValue + "(\\s|$)") : null;
+    var oCurrent;
+    var oAttribute;
+    for (var i = 0; i < arrElements.length; i++) {
+        oCurrent = arrElements[i];
+        oAttribute = oCurrent.getAttribute(strAttributeName);
+        if (typeof oAttribute == "string" && oAttribute.length > 0) {
+            if (typeof strAttributeValue == "undefined" || (oAttributeValue && oAttributeValue.test(oAttribute))) {
+                arrReturnElements.push(oCurrent);
+            }
+        }
+    }
+    return arrReturnElements;
+}
+
+function ajaxcascadeupdate() {
+    var collection = document.getElementsByTagName('SELECT');
+    for (var x = 0; x < collection.length; x++) {
+        if (collection[x].getAttribute('data-cascadecontrol'))
+            if (collection[x].getAttribute('data-cascadecontrol') != '') {
+                ajaxcascadesamecontrollerpartialonload(collection[x].getAttribute('data-prefix'), collection[x].getAttribute('data-cascadecontrol'));
+            }
+    }
+    collection = document.getElementsByTagName('INPUT');
+    for (var x = 0; x < collection.length; x++) {
+        if (collection[x].getAttribute('data-cascadecontrol'))
+            if (collection[x].getAttribute('data-cascadecontrol') != '') {
+                ajaxcascadesamecontrollerpartialonload(collection[x].getAttribute('data-prefix'), collection[x].getAttribute('data-cascadecontrol'));
+            }
+    }
+    collection = document.getElementsByTagName('TEXTAREA');
+    for (var x = 0; x < collection.length; x++) {
+        if (collection[x].getAttribute('data-cascadecontrol'))
+            if (collection[x].getAttribute('data-cascadecontrol') != '') {
+                ajaxcascadesamecontrollerpartialonload(collection[x].getAttribute('data-prefix'), collection[x].getAttribute('data-cascadecontrol'));
+            }
+    }
+}
+
+function ajaxcascadesamepageelementpartial(prefix, cascadestring) {
+
+    cascadestring = replaceAll(',', '","', cascadestring);
+    cascadestring = replaceAll(':', '":"', cascadestring);
+    cascadestring = replaceAll('}","{', '"},{"', cascadestring);
+    cascadestring = replaceAll('}}', '"}]}', cascadestring);
+    cascadestring = replaceAll('{{', '{"collection":[{"', cascadestring);
+
+
+    if (cascadestring == "") { return; }
+    var jsonObj = JSON.parse(cascadestring);
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        switch (jsonObj.collection[i].asynchronous) {
+            case "yes":
+                //call ajaxupdatesynchpartial
+                ajaxupdateasynchsamepageelementpartial(prefix, prefix + '_' + jsonObj.collection[i].control + '_' + jsonObj.collection[i].control);
+                break;
+            default:
+                //call ajaxupdatesynchpartial
+                ajaxupdatesynchsamepageelementpartial(prefix, prefix + '_' + jsonObj.collection[i].control + '_' + jsonObj.collection[i].control);
+                break;
+        }
+    }
+}
+function ajaxupdatesynchsamepageelementpartial(prefix, control) {
+    var updatestring = j(control).getAttribute('data-updatequery');
+    var url = j(control).getAttribute('data-updateurl');
+    updatestring = replaceAll(',', '","', updatestring);
+    updatestring = replaceAll(':', '":"', updatestring);
+    updatestring = replaceAll('}","{', '"},{"', updatestring);
+    updatestring = replaceAll('}}', '"}]}', updatestring);
+    updatestring = replaceAll('{{', '{"collection":[{"', updatestring);
+
+    if (updatestring == "") { return; }
+    var jsonObj = JSON.parse(updatestring);
+    var thequery = '';
+    var thecontrol = '';
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        thequery = jsonObj.collection[i].query;
+        thecontrol = prefix + '_' + jsonObj.collection[i].control + '_' + jsonObj.collection[i].control;
+
+
+        var tag = j(thecontrol).tagName;
+        var value = '';
+        if (tag == 'INPUT') {
+            var type = j(thecontrol).getAttribute('type');
+            if (type == 'text') {
+                value = j(thecontrol).value;
+            }
+        }
+
+        if (tag == 'SELECT') {
+            if (j(thecontrol).options.length != 0) { value = j(thecontrol).options[j(thecontrol).selectedIndex].value; }
+        }
+
+        if (url.indexOf("?") != -1) { url = url + '&' + thequery + '=' + value; }
+        else { url = url + '?' + thequery + '=' + value; }
+
+        //j(control).setAttribute('value', 'yes o!');
+        //document.getElementById('personlist').getElementsByTagName('option')[11].selected 
+    }
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send();
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var response = xmlhttp.responseText;
+        j(control + '_container').outerHTML = response;
+    }
+
+}
+function ajaxupdateasynchsamepageelementpartial(prefix, control) {
+    var updatestring = j(control).getAttribute('data-updatequery');
+    var url = j(control).getAttribute('data-updateurl');
+    updatestring = replaceAll(',', '","', updatestring);
+    updatestring = replaceAll(':', '":"', updatestring);
+    updatestring = replaceAll('}","{', '"},{"', updatestring);
+    updatestring = replaceAll('}}', '"}]}', updatestring);
+    updatestring = replaceAll('{{', '{"collection":[{"', updatestring);
+
+    if (updatestring == "") { return; }
+    var jsonObj = JSON.parse(updatestring);
+    var thequery = '';
+    var thecontrol = '';
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        thequery = jsonObj.collection[i].query;
+        thecontrol = prefix + '_' + jsonObj.collection[i].control + '_' + jsonObj.collection[i].control;
+
+
+        var tag = j(thecontrol).tagName;
+        var value = '';
+        if (tag == 'INPUT') {
+            var type = j(thecontrol).getAttribute('type');
+            if (type == 'text') {
+                value = j(thecontrol).value;
+            }
+        }
+
+        if (tag == 'SELECT') {
+            if (j(thecontrol).options.length != 0) { value = j(thecontrol).options[j(thecontrol).selectedIndex].value; }
+        }
+
+        if (url.indexOf("?") != -1) { url = url + '&' + thequery + '=' + value; }
+        else { url = url + '?' + thequery + '=' + value; }
+
+        //j(control).setAttribute('value', 'yes o!');
+        //document.getElementById('personlist').getElementsByTagName('option')[11].selected 
+    }
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var response = xmlhttp.responseText;
+            j(control + '_container').outerHTML = response;
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function ajaxcascadesamecontrollerpartialonload(prefix, cascadestring) {
+
+    cascadestring = replaceAll(',', '","', cascadestring);
+    cascadestring = replaceAll(':', '":"', cascadestring);
+    cascadestring = replaceAll('}","{', '"},{"', cascadestring);
+    cascadestring = replaceAll('}}', '"}]}', cascadestring);
+    cascadestring = replaceAll('{{', '{"collection":[{"', cascadestring);
+
+
+    if (cascadestring == "") { return; }
+    var jsonObj = JSON.parse(cascadestring);
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        //var onloadupdate = j(prefix + '_' + jsonObj.collection[i].control).getAttribute('data-onloadupdate');
+        if (jsonObj.collection[i].onloadupdate != 'no') {
+            switch (jsonObj.collection[i].asynchronous) {
+                case "yes":
+                    //call ajaxupdatesynchpartial
+                    ajaxupdateasynchsamecontrollerpartial(prefix, prefix + '_' + jsonObj.collection[i].control);
+                    break;
+                default:
+                    //call ajaxupdatesynchpartial
+                    ajaxupdatesynchsamecontrollerpartial(prefix, prefix + '_' + jsonObj.collection[i].control);
+                    break;
+            }
+        }        
+    }
+}
+function ajaxcascadesamecontrollerpartial(prefix, cascadestring) {
+
+    cascadestring = replaceAll(',', '","', cascadestring);
+    cascadestring = replaceAll(':', '":"', cascadestring);
+    cascadestring = replaceAll('}","{', '"},{"', cascadestring);
+    cascadestring = replaceAll('}}', '"}]}', cascadestring);
+    cascadestring = replaceAll('{{', '{"collection":[{"', cascadestring);
+
+
+    if (cascadestring == "") { return; }
+    var jsonObj = JSON.parse(cascadestring);
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        switch (jsonObj.collection[i].asynchronous) {
+            case "yes":
+                //call ajaxupdatesynchpartial
+                ajaxupdateasynchsamecontrollerpartial(prefix, prefix + '_' + jsonObj.collection[i].control);
+                break;
+            default:
+                //call ajaxupdatesynchpartial
+                ajaxupdatesynchsamecontrollerpartial(prefix, prefix + '_' + jsonObj.collection[i].control);
+                break;
+        }
+    }
+}
+function ajaxupdatesynchsamecontrollerpartial(prefix, control) {
+    var updatestring = j(control).getAttribute('data-updatequery');
+    var url = j(control).getAttribute('data-updateurl');
+    updatestring = replaceAll(',', '","', updatestring);
+    updatestring = replaceAll(':', '":"', updatestring);
+    updatestring = replaceAll('}","{', '"},{"', updatestring);
+    updatestring = replaceAll('}}', '"}]}', updatestring);
+    updatestring = replaceAll('{{', '{"collection":[{"', updatestring);
+
+    if (updatestring == "") { return; }
+    var jsonObj = JSON.parse(updatestring);
+    var thequery = '';
+    var thecontrol = '';
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        thequery = jsonObj.collection[i].query;
+        thecontrol = prefix + '_' + jsonObj.collection[i].control;
+
+
+        var tag = j(thecontrol).tagName;
+        var value = '';
+        if (tag == 'INPUT') {
+            var type = j(thecontrol).getAttribute('type');
+            if (type == 'text') {
+                value = j(thecontrol).value;
+            }
+        }
+
+        if (tag == 'SELECT') {
+            if (j(thecontrol).options.length != 0) { value = j(thecontrol).options[j(thecontrol).selectedIndex].value; }
+        }
+
+        if (url.indexOf("?") != -1) { url = url + '&' + thequery + '=' + value; }
+        else { url = url + '?' + thequery + '=' + value; }
+
+        //j(control).setAttribute('value', 'yes o!');
+        //document.getElementById('personlist').getElementsByTagName('option')[11].selected 
+    }
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+
+    xmlhttp.open("GET", url, false);
+    xmlhttp.send();
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var response = xmlhttp.responseText;
+        j(control + '_container').outerHTML = response;
+    }
+
+}
+function ajaxupdateasynchsamecontrollerpartial(prefix, control) {
+    var updatestring = j(control).getAttribute('data-updatequery');
+    var url = j(control).getAttribute('data-updateurl');
+    updatestring = replaceAll(',', '","', updatestring);
+    updatestring = replaceAll(':', '":"', updatestring);
+    updatestring = replaceAll('}","{', '"},{"', updatestring);
+    updatestring = replaceAll('}}', '"}]}', updatestring);
+    updatestring = replaceAll('{{', '{"collection":[{"', updatestring);
+
+    if (updatestring == "") { return; }
+    var jsonObj = JSON.parse(updatestring);
+    var thequery = '';
+    var thecontrol = '';
+    for (var i = 0; i < jsonObj.collection.length; i++) {
+        thequery = jsonObj.collection[i].query;
+        thecontrol = prefix + '_' + jsonObj.collection[i].control;
+
+
+        var tag = j(thecontrol).tagName;
+        var value = '';
+        if (tag == 'INPUT') {
+            var type = j(thecontrol).getAttribute('type');
+            if (type == 'text') {
+                value = j(thecontrol).value;
+            }
+        }
+
+        if (tag == 'SELECT') {
+            if (j(thecontrol).options.length != 0) { value = j(thecontrol).options[j(thecontrol).selectedIndex].value; }
+        }
+
+        if (url.indexOf("?") != -1) { url = url + '&' + thequery + '=' + value; }
+        else { url = url + '?' + thequery + '=' + value; }
+
+        //j(control).setAttribute('value', 'yes o!');
+        //document.getElementById('personlist').getElementsByTagName('option')[11].selected 
+    }
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var response = xmlhttp.responseText;
+            j(control + '_container').outerHTML = response;
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+var dt1 = new Date();
+function MessageTime() {
+    //const today = new Date();
+    //let h = today.getHours();
+    //let m = today.getMinutes();
+    //let s = today.getSeconds();
+    let h = dt1.getHours();
+    let m = dt1.getMinutes();
+    let s = dt1.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    //document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+    const collection = document.getElementsByClassName("message_time");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].innerHTML = h + ":" + m + ":" + s + ": " + diff_minutes() + " Minutes ago";
+    }
+    setTimeout(MessageTime, 1000);
+}
+
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
+
+function diff_minutes() {
+    var dt2 = new Date()
+    var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    //Math.
+    return Math.abs(Math.round(diff));
+}
+
+function autocomplete(inp, arr) {
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function (e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function (e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+}

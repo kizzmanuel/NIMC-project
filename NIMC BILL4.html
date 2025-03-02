@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://localhost:50721/protected/nimcbill/bill_txn_list.sap -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="http://localhost:50721/template/Frontend/skin/default/img/favicon.png" rel="icon">
+<title>NIMC BILL</title>
+<link rel="icon" type="image/x-icon" href="./NIMC BILL_files/ninlogo.png" />
+<link href="./NIMC BILL4_files/styles.css" rel="stylesheet">
+<link href="./NIMC BILL4_files/bootstrap.min.css" rel="stylesheet">
+<link href="./NIMC BILL4_files/bootstrap-theme.min.css" rel="stylesheet">
+<link href="./NIMC BILL4_files/datetimepicker.min.css" rel="stylesheet">
+<link href="./NIMC BILL4_files/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="./NIMC BILL4_files/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="fontawesome/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+<script src="./NIMC BILL4_files/basic.js.download"></script>
+<script src="./NIMC BILL4_files/jquery-3.2.1.min.js.download"></script>
+<script src="./NIMC BILL4_files/bootstrap.min.js.download"></script>
+<script src="./NIMC BILL4_files/datetimepicker.min.js.download"></script>
+</head>
+<style>
+    .btn-primary {
+    background-color: #058710 !important;
+    border-color: #046b0d !important;
+}
+
+.btn-primary:hover {
+    background-color: #046b0d !important;
+    border-color: #035a0a !important;
+}
+
+</style>
+<body onload="MessageTime()">
+    
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #046b0d;">
+        <div class="container-fluid" style="background-color: #046b0d;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:50721/public/home/index.sap">
+                    <img src="./NIMC BILL5_files/logo6.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" style="background-color: #046b0d;">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://localhost:50721/public/home/index.sap" style="color: #fff;">Home</a></li>
+                    <li ><a href="http://localhost:50721/protected/security/index.sap" style="color: #fff;">Admin</a></li>
+                    <li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap" style="color: #fff;">Billing</a></li>
+                    <li><a href="http://localhost:50721/protected/nimcbill/selfservice.sap" style="color: #fff;">Self Service</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #fff;">
+                            <i class="fa fa-user"></i> Admin <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://localhost:50721/protected/home/changepassword.sap"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://localhost:50721/protected/security/login_add_form.sap"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <ol class="breadcrumb">
+    <li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap">Billing</a></li>
+</ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- /.row -->
+            <div class="row">
+    <div class="col-lg-12">
+        <ul class="sidebar">
+            
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/software_provider_txn_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Software</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/device_txn_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Device</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/rate_viw_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Rate</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/fep_mst_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">FEP</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/all_transaction_txn_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Meta Data</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/payment_txn_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Payment</a></li>
+
+<li role="presentation"><a href="http://localhost:50721/protected/nimcbill/ledger_txn_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap">Ledger</a></li>
+ 
+        </ul>       
+    </div>
+</div>
+
+
+            <form id="content_1_bill_txn_list1_list1" action="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__return_anchor=content_1_bill_txn_list1_list1" method="post" class="form-horizontal list-control">
+    <input type="hidden" id="content_1_bill_txn_list1_list1___event" name="content_1_bill_txn_list1_list1___event" value="">
+    <input type="hidden" id="content_1_bill_txn_list1_list1___event_section" name="content_1_bill_txn_list1_list1___event_section" value="">
+    <input type="hidden" id="content_1_bill_txn_list1_list1___event_name" name="content_1_bill_txn_list1_list1___event_name" value="">
+    
+    
+    
+    <div class="form-group">
+    <div class="col-xs-12">
+        <div class="form-inline">
+            
+<button type="button" class="btn btn-danger btn-sm" data-target="#content_1_bill_txn_list1_list1___tool___delete_myModal" role="button" data-toggle="modal">Delete</button>
+<!-- modal -->
+
+<div class="modal fade" id="content_1_bill_txn_list1_list1___tool___delete_myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+            </div>
+            <div class="modal-body">
+
+                <p>Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <a class="btn btn-primary" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;delete&#39;, &#39;toolbar&#39;, &#39;delete&#39;);return false;">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="input-group">
+    <input id="content_1_bill_txn_list1_list1___tool___search" name="content_1_bill_txn_list1_list1___tool___search" class="form-control input-sm" value="" type="text">
+    <span class="input-group-btn">
+        <a class="btn btn-primary btn-sm" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;search&#39;, &#39;toolbar&#39;, &#39;search&#39;);return false;"><span class="glyphicon glyphicon-search" data-toggle="tooltip" data-placement="bottom" title="Search"></span></a>
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#filter-panel"><span class="glyphicon glyphicon-cog" data-toggle="tooltip" data-placement="bottom" title="Advanced Search"></span></button>
+    </span>    
+</div>
+
+<div class="btn-group">
+    <button type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th" data-toggle="tooltip" data-placement="bottom" title="Select Column"></span></button>
+    <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_period_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_period_visible" checked="checked">&nbsp; Period</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_bill_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_bill_visible" checked="checked">&nbsp; Bill</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_method_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_method_visible" checked="checked">&nbsp; Method</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_count_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_count_visible" checked="checked">&nbsp; Count</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_total_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_total_visible" checked="checked">&nbsp; Total</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_source_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_source_visible" checked="checked">&nbsp; Source</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_ref_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_ref_visible" checked="checked">&nbsp; Ref</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_previous_row_checksum_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_previous_row_checksum_visible">&nbsp; Previous row checksum</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_row_checksum_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_row_checksum_visible">&nbsp; Row checksum</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_creation_timestamp_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_creation_timestamp_visible">&nbsp; Creation timestamp</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_creation_session_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_creation_session_visible">&nbsp; Creation session</li><li>&nbsp;<input type="checkbox" id="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_audit_reference_visible" name="content_1_bill_txn_list1_list1_listtool1_listtoolitem1_audit_reference_visible">&nbsp; Audit reference</li>
+    </ul>
+</div>
+
+<a id="content_1_bill_txn_list1_list1___tool___export" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?content_1_bill_txn_list1_list1___event=export&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=export&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___export">Export</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___bill_all" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_add_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=bill_all&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___bill_all">Bill All</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___bill_by_period" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_by_period_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=bill_by_period&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___bill_by_period">Bill Period</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___bill_by_fep" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_by_fep_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=bill_by_fep&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___bill_by_fep">Bill FEP</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___pay_all" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/payment_add_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=pay_all&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___pay_all">Pay All</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___pay_bill" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_pay_bill_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=pay_bill&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___pay_bill">Pay Bill</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___pay_period" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_pay_period_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=pay_period&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___pay_period">Pay Period</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___pay_date" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_pay_date_form.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=pay_date&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___pay_date">Pay Date</a>
+
+<a id="content_1_bill_txn_list1_list1___tool___report" class="btn btn-warning btn-sm" href="http://localhost:50721/protected/nimcbill/bill_txn_report.sap?content_1_bill_txn_list1_list1___event=&amp;content_1_bill_txn_list1_list1___event_section=toolbar&amp;content_1_bill_txn_list1_list1___event_name=report&amp;__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1___tool___report">Report</a>
+
+        </div>        
+    </div>
+</div>
+    <div class="form-group">
+    <div class="col-xs-12">
+        <div id="filter-panel" class="collapse">
+            <div class="well well-sm"><span class="glyphicon glyphicon-cog" data-toggle="tooltip" data-placement="bottom" title="Advanced Search"></span>Advanced Search Builder</div>
+            <dl class="panel panel-info">
+    <dt class="panel-heading">
+        <div class="input-group input-group-sm">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-link" data-toggle="tooltip" data-placement="bottom" title="Relationship" aria-hidden="true"></span></span>
+            <select id="content_1_bill_txn_list1_list1_listadvancedsearch1_listadvancedsearchgroup1" name="content_1_bill_txn_list1_list1_listadvancedsearch1_listadvancedsearchgroup1" class="form-control">
+                <option value="AND">AND</option><option value="OR">OR</option>
+            </select>
+        </div>
+        <div class="btn-group">
+            <a class="btn btn-warning" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;addrule_listadvancedsearch1_listadvancedsearchgroup1&#39;, &#39;&#39;, &#39;&#39;); return false;"><i class="glyphicon glyphicon-plus"></i> Add rule</a>
+            <a class="btn btn-success" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;addgroup_listadvancedsearch1_listadvancedsearchgroup1&#39;, &#39;&#39;, &#39;&#39;); return false;"><i class="glyphicon glyphicon-plus-sign"></i> Add group</a>
+            <a class="btn btn-danger" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;deletegroup_listadvancedsearch1_listadvancedsearchgroup1&#39;, &#39;&#39;, &#39;&#39;); return false;"><i class="glyphicon glyphicon-remove"></i> Remove Group</a>
+        </div>
+    </dt>
+    <dd class="panel-body">
+        
+    </dd>
+</dl>            
+        </div>        
+    </div>
+</div>
+<script>
+    if ('false' === 'true') {
+        $("#filter-panel").addClass("in");
+    }
+</script>
+    <div class="form-group">
+        <div class="col-xs-12">
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <table class="table table-hover table-bordered bg-table-stanbic">
+                <thead>
+    <tr> 
+        
+<th>Transaction</th>
+
+<th>Ledger</th>
+
+<th>Schedule</th>
+
+<th><input type="checkbox" id="content_1_bill_txn_list1_list1___data___check" name="content_1_bill_txn_list1_list1___data___check" value="" onclick="CheckAll(this);"></th>
+
+<th>Period 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_period=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Bill 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_bill=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Method 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_method=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Count 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_count=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Total 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_total=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Source 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_source=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+
+<th>Ref 
+<a class="btn btn-default pull-right" href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;__sort_ref=ascend&amp;__return_anchor=content_1_bill_txn_list1_list1"><span class="glyphicon glyphicon-sort"></span></a>
+</th>
+  
+    </tr>
+</thead>
+
+                <tbody>
+<tr>
+
+<td><a id="content_1_bill_txn_list1_list1_transaction_0" href="http://localhost:50721/protected/nimcbill/bill_transaction_viw_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1_transaction_0&amp;content_1_bill_txn_list1_list1___event_section=staticlink&amp;content_1_bill_txn_list1_list1___event_name=transaction&amp;bill=1">Transaction</a></td>
+
+<td><a id="content_1_bill_txn_list1_list1_ledger_0" href="http://localhost:50721/protected/nimcbill/ledger_bill_viw_list.sap?__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1_ledger_0&amp;content_1_bill_txn_list1_list1___event_section=staticlink&amp;content_1_bill_txn_list1_list1___event_name=ledger&amp;bill=1">Ledger</a></td>
+
+<td><a id="content_1_bill_txn_list1_list1_schedule_0" href="http://localhost:50721/protected/nimcbill/bill_schedule_viw_report.sap?__return_url=protected/nimcbill/bill_txn_list.sap&amp;__return_anchor=content_1_bill_txn_list1_list1_schedule_0&amp;content_1_bill_txn_list1_list1___event_section=staticlink&amp;content_1_bill_txn_list1_list1___event_name=schedule&amp;bill=1">Schedule</a></td>
+
+<td>
+<input type="checkbox" id="content_1_bill_txn_list1_list1___data___check__0_ca" name="content_1_bill_txn_list1_list1___data___check__0_ca">
+</td>
+
+<td>1st Period</td>
+
+<td>1</td>
+
+<td>On-demand</td>
+
+<td>2031</td>
+
+<td>1,617,975.84</td>
+
+<td>Bill</td>
+
+<td>1</td>
+
+</tr>
+
+</tbody>
+
+                
+            </table>
+            <!-- modal -->
+            <div id="content_1_bill_txn_list1_list1_myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h3 id="myModalLabel">Confirm</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                    <button class="btn btn-primary" data-dismiss="modal" onclick="submitForm(&#39;content_1_bill_txn_list1_list1&#39;, &#39;submit&#39;, &#39;&#39;, &#39;&#39;); return false;">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12 col-sm-6 col-lg-5">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___page_no=1&amp;__return_anchor=content_1_bill_txn_list1_list1" data-toggle="tooltip" data-placement="bottom" title="Start">&lt;&lt;</a></li>
+                    <li><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap" data-toggle="tooltip" data-placement="bottom" title="Previous">&lt;</a></li>
+                    <li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___page_no=1&amp;__return_anchor=content_1_bill_txn_list1_list1">1</a></li>
+                    <li><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___more=1&amp;__return_anchor=content_1_bill_txn_list1_list1" data-toggle="tooltip" data-placement="bottom" title="More pages">+</a></li>
+                    <li><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___page_no=1&amp;__return_anchor=content_1_bill_txn_list1_list1" data-toggle="tooltip" data-placement="bottom" title="Next">&gt;</a></li>
+                    <li><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___page_no=1&amp;__return_anchor=content_1_bill_txn_list1_list1" data-toggle="tooltip" data-placement="bottom" title="End">&gt;&gt;</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-lg-7">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" data-placement="bottom" title="Number of pages">
+                                1<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___noofpages=1&amp;__return_anchor=content_1_bill_txn_list1_list1">1</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle " data-toggle="dropdown" data-placement="bottom" title="Records per page">
+                                10<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=10&amp;__return_anchor=content_1_bill_txn_list1_list1">10</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=20&amp;__return_anchor=content_1_bill_txn_list1_list1">20</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=30&amp;__return_anchor=content_1_bill_txn_list1_list1">30</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=40&amp;__return_anchor=content_1_bill_txn_list1_list1">40</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=50&amp;__return_anchor=content_1_bill_txn_list1_list1">50</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=60&amp;__return_anchor=content_1_bill_txn_list1_list1">60</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=70&amp;__return_anchor=content_1_bill_txn_list1_list1">70</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=80&amp;__return_anchor=content_1_bill_txn_list1_list1">80</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=90&amp;__return_anchor=content_1_bill_txn_list1_list1">90</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=100&amp;__return_anchor=content_1_bill_txn_list1_list1">100</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=110&amp;__return_anchor=content_1_bill_txn_list1_list1">110</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=120&amp;__return_anchor=content_1_bill_txn_list1_list1">120</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=130&amp;__return_anchor=content_1_bill_txn_list1_list1">130</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=140&amp;__return_anchor=content_1_bill_txn_list1_list1">140</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=150&amp;__return_anchor=content_1_bill_txn_list1_list1">150</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=160&amp;__return_anchor=content_1_bill_txn_list1_list1">160</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=170&amp;__return_anchor=content_1_bill_txn_list1_list1">170</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=180&amp;__return_anchor=content_1_bill_txn_list1_list1">180</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=190&amp;__return_anchor=content_1_bill_txn_list1_list1">190</a></li><li class="active"><a href="http://localhost:50721/protected/nimcbill/bill_txn_list.sap?__section=content_1&amp;__element=bill_txn_list1&amp;__controller_list1=&amp;content_1_bill_txn_list1_list1___rowsperpage=200&amp;__return_anchor=content_1_bill_txn_list1_list1">200</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn-group">
+                            <div class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Records">
+                                1 - 1 of 1
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</form>
+        </div>
+        <!-- /.container-fluid -->
+        <div class="modal fade" id="SharedModal" tabindex="-1" role="dialog" aria-labelledby="SharedModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="SharedModalLabel">Confirm</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <p id="SharedModalMessage"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <a class="btn btn-primary" onclick="submitSetEvent();return false;">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+<script src=""></script>
+    <script>ajaxcascadeupdate();</script>
+
+</body></html>

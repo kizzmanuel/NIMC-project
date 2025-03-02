@@ -1,0 +1,292 @@
+
+.search {
+    height:40px;
+    padding-top:7px;
+    padding-right:10px;
+}
+.search input {
+    height: 26px;
+    box-sizing: border-box;
+    padding-top: 0px;
+    }
+.icon-bar {
+    background-color: black;
+}
+
+.navbar-toggle{
+    background-color:chartreuse;
+}
+
+.index_page {
+    background-image: url(../img/index_bkgrnd.jpg);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.service_page {
+    background-image: url(../img/service_bkgrnd.jpg);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.solution_page {
+    background-image: url(../img/solution_bkgrnd.jpg);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.download_page {
+    background-image: url(../img/download_bkgrnd.png);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.apprenticeship_page {
+    background-image: url(../img/apprenticeship_bkgrnd.jpg);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.contact_page {
+    background-image: url(../img/contact_bkgrnd.jpg);
+    background-position: right bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+main .container {
+    /*background-image: url(../img/bkgrnd.jpeg);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;*/
+}
+
+main, .main {
+    margin-top: 110px;
+    margin-bottom: 60px;
+    
+}
+
+.btn-primary {
+    background-color: #058710!important;
+    border-color: #046b0d!important;
+}
+ .btn-primary:hover {
+    background-color: #046b0d!important;
+    border-color: #035a0a!important;
+}
+@media(min-width:768px) {
+    main, .main {
+        padding-left: 225px;
+        margin-top: 120px;
+        margin-bottom: 60px;
+    }
+}
+@media(min-width:768px) {
+    main, .main {
+        padding-left: 225px;
+    }    
+}
+.noside {
+    padding-left: 0px;
+}
+.page-header {
+    padding-bottom: 0px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+
+.btn-toolbar {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.pagination {
+    margin: 0 0;
+}
+
+.list-control .form-control {
+    display: inline-block;
+    /*width:auto;*/
+}
+
+.list-control .rules-group-container .form-control {
+    display: inline-flex;
+    width: calc(99%);
+}
+
+.list-control .input-group-btn,
+.list-control .input-group-addon {
+    width: auto;
+}
+
+.list-control .input-group {
+    display: inline-flex;
+}
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.side-nav, .navbar-nav {    
+    background-color: #eaeee1;        
+    z-index:3;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 110px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #eaeee1;
+        border-right-style: ridge;
+        border-right-width: thick;
+        border-right-color: #fff;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+        transition: left 0.5s linear;
+        -moz-transition: left 0.5s linear;
+        -webkit-transition: left 0.5s linear;
+        /*
+        .side-nav ul li a i{
+        padding-left:10em;
+        margin-top: -1em; 
+        margin-bottom: -1em;
+        }
+        */
+    }
+
+        .side-nav > li > a {
+            width: 225px;
+        }
+
+        .side-nav li a:hover,
+        .side-nav li a:focus {
+            outline: none;
+            background-color: #000 !important;
+        }
+}
+
+.side-nav > li > ul {
+    padding: 0;
+}
+
+    .side-nav > li > ul > li > a {
+        display: block;
+        padding: 10px 15px 10px 38px;
+        text-decoration: none;
+        color: #999999;
+    }
+
+        .side-nav > li > ul > li > a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .side-nav > li > ul > li > a:active {
+            text-decoration: none;
+            outline: none;
+            color: red;
+        }
+
+
+
+        .side-nav > li > ul > li > a:focus {
+            text-decoration: none;
+            outline: none;
+            color: red;
+        }
+
+    .side-nav > li > ul .side-nav-brand a {
+        color: white;
+    }
+
+        .side-nav > li > ul .side-nav-brand a:hover {
+            color: lightblue;
+            background: none;
+        }
+/*
+.side-nav ul li a span{
+    margin-top: -1em;
+    margin-bottom: -1em;
+    margin-left: 1em;
+    margin-top: -1em;
+    padding-top:-1em;
+    padding-bottom:-1em; 
+}
+*/
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+/*
+.bg-body-stanbic {
+    --bs-bg-stanbic-opacity: 1;
+    --bs-bg-stanbic-rgb: 0, 82, 255;
+    background-color: rgba(var(--bs-bg-stanbic-rgb),var(--bs-bg-stanbic-opacity)) !important;
+}
+
+.bg-table-stanbic {
+    background-color: #D6EEEE;
+}*/
+body {
+    background-image: url('../img/2.jpeg');
+}
